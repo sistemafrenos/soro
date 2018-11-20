@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CA2659C-5D59-417A-B433-297B5E639000}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HK</RootNamespace>
+    <AssemblyName>OK Retenciones</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\Basicas.cs" />
+    <Compile Include="Clases\FactoryContadores.cs" />
+    <Compile Include="Clases\FactoryProveedores.cs" />
+    <Compile Include="Data.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmBuscarEntidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmBuscarEntidades.designer.cs">
+      <DependentUpon>FrmBuscarEntidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmParametros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmParametros.Designer.cs">
+      <DependentUpon>FrmParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmProveedores.Designer.cs">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmProveedoresItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmProveedoresItem.Designer.cs">
+      <DependentUpon>FrmProveedoresItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesISLR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesISLR.Designer.cs">
+      <DependentUpon>FrmRetencionesISLR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmReportes.designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmRetenciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmRetenciones.Designer.cs">
+      <DependentUpon>FrmRetenciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesISLRItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesISLRItem.Designer.cs">
+      <DependentUpon>FrmRetencionesISLRItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesItem.Designer.cs">
+      <DependentUpon>FrmRetencionesItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionIVA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionIVA.Designer.cs">
+      <DependentUpon>FrmRetencionIVA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionIvaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionIvaEdit.Designer.cs">
+      <DependentUpon>FrmRetencionIvaEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesISLRitemEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formas\FrmRetencionesISLRitemEdit.Designer.cs">
+      <DependentUpon>FrmRetencionesISLRitemEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formas\FrmBuscarEntidades.resx">
+      <DependentUpon>FrmBuscarEntidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmParametros.resx">
+      <DependentUpon>FrmParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmProveedores.resx">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmProveedoresItem.resx">
+      <DependentUpon>FrmProveedoresItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmRetencionesISLR.resx">
+      <DependentUpon>FrmRetencionesISLR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmRetenciones.resx">
+      <DependentUpon>FrmRetenciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmRetencionesISLRItem.resx">
+      <DependentUpon>FrmRetencionesISLRItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmRetencionesItem.resx">
+      <DependentUpon>FrmRetencionesItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmRetencionIVA.resx">
+      <DependentUpon>FrmRetencionIVA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmRetencionIvaEdit.resx">
+      <DependentUpon>FrmRetencionIvaEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formas\FrmRetencionesISLRitemEdit.resx">
+      <DependentUpon>FrmRetencionesISLRitemEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="Layouts\Proveedores.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reportes\Retencion.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reportes\RetencionCH.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reportes\ListadoProveedores.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reportes\Reporte_Excel.rdlc" />
+    <Content Include="Reportes\RetencionDoble.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reportes\RetencionISLR.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Data.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Data.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\DataSources\Data.datasource" />
+    <None Include="Properties\DataSources\Parametros.datasource" />
+    <None Include="Properties\DataSources\Proveedore.datasource" />
+    <None Include="Properties\DataSources\Retenciones.datasource" />
+    <None Include="Properties\DataSources\RetencionesISLR.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\book_blue.png" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\clipboard.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\data_find.png" />
+    <None Include="Resources\data_lock.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\delete21.png" />
+    <None Include="Resources\disk_blue_error.png" />
+    <None Include="Resources\disk_blue_ok.png" />
+    <None Include="Resources\document_delete.png" />
+    <None Include="Resources\document_new.png" />
+    <None Include="Resources\down_minus.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\folder_refresh.png" />
+    <None Include="Resources\note.png" />
+    <None Include="Resources\note_add.png" />
+    <None Include="Resources\note_delete.png" />
+    <None Include="Resources\note_edit.png" />
+    <None Include="Resources\note_find.png" />
+    <None Include="Resources\note_new.png" />
+    <None Include="Resources\note_pinned.png" />
+    <None Include="Resources\note_view.png" />
+    <None Include="Resources\presentation_chart.png" />
+    <None Include="Resources\printer.png" />
+    <Content Include="Retenciones.sdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

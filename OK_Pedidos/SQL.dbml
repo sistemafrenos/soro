@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Soro" Class="SQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=Soro;Integrated Security=True" SettingsObjectName="HK.Properties.Settings" SettingsPropertyName="SoroConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Terceros" Member="SQLTerceros">
+    <Type Name="SQLTercero">
+      <Column Name="IdTercero" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CedulaRif" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Telefonos" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiasCredito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LimiteCredito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TipoContribuyente" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Activo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DescuentoPorcentaje" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Zona" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TipoPrecio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Condiciones" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MontoPendiente" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SaldosPendientes" Member="SQLSaldosPendientes">
+    <Type Name="SQLSaldosPendiente">
+      <Column Name="IdTercero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SaldoPendiente" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documentos" Member="SQLDocumentos">
+    <Type Name="SQLDocumentos">
+      <Column Name="IdDocumento" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTercero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IdVendedor" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TipoCuenta" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Vence" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BaseImponible" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MontoExento" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MontoIva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TasaIVA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MontoTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Saldo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Comentarios" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Activo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdSesion" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="Momento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Seleccion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Mes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Año" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Control" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DescuentoPorcentaje" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DescuentoBs" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Fletes" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Efectivo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cheque" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TarjetaDebito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TarjetaCredito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Deposito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Transferencias" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cambio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeudaAnterior" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Condiciones" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PesoFactura" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Enviado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="SQLDocumentos_SQLDocumentosProductos" Member="SQLDocumentosProductos" ThisKey="IdDocumento" OtherKey="IdDocumento" Type="SQLDocumentosProductos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contadores" Member="SQLContadores">
+    <Type Name="SQLContadores">
+      <Column Name="Variable" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Valor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Parametros" Member="SQLParametros">
+    <Type Name="SQLParametros">
+      <Column Name="IdParametros" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Empresa" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="EmpresaDireccion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="EmpresaCiudad" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmpresaRif" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmpresaTelefonos" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TasaIVA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TipoImpresora" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TipoImpresion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PuertoImpresora" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Utilidad1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Utilidad2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Utilidad3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RetencionISLR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RetencionIVA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CostoDolar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RegistroMaquinaFiscal" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UltimoReporteZ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Correlativofactura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CorrelativoDevolucion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CalculoPrecios" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TipoIva" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Vendedor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Utilidad4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NotaPieDeFactura" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TopeItemsFactura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FacturarSinExistencia" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocumentosProductos" Member="SQLDocumentosProductos">
+    <Type Name="SQLDocumentosProductos">
+      <Column Name="IdDetalleDocumento" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdDocumento" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IdProducto" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="IdServidor" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Codigo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Comentarios" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ExistenciaAnterior" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Costo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CostoIva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PrecioIva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TasaIva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Iva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BloqueoPrecio" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Precio2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Precio3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DescuentoPorcentaje" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DescuentoBs" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MontoNeto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RealizadoPor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SolicitaServidor" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PesoUnitario" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PesoTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UnidadMedida" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Pvs" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Precio4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Utilidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Utilidad2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Utilidad3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Utilidad4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Activo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="SQLDocumentos_SQLDocumentosProductos" Member="SQLDocumentos" ThisKey="IdDocumento" OtherKey="IdDocumento" Type="SQLDocumentos" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cuentas" Member="SQLCuentas">
+    <Type Name="SQLCuentas">
+      <Column Name="IdCuenta" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdSesion" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="Momento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdDocumento" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="IdTercero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Vence" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TipoDocumento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Concepto" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Saldo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Seleccion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistroPagos" Member="SQLRegistroPagos">
+    <Type Name="SQLRegistroPago">
+      <Column Name="IdRegistroPago" Type="System.String" DbType="NVarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdDocumento" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Momento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Modulo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Documento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MontoPagar" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SaldoPendiente" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cambio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Efectivo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cheque" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TDebito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TCredito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Deposito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BancoCheque" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumeroCheque" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PuntoDebito" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PuntoCredito" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumeroDeposito" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BancoDeposito" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Transferencia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RetencionISLR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RetencionIVA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdTercero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="detalles" Member="Detalles" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistroPagosDetalles" Member="SQLRegistroPagosDetalles">
+    <Type Name="SQLRegistroPagosDetalle">
+      <Column Name="IdRegistroPagosDetalle" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdDocumento" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Numero" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistroPagosExternosDetalles" Member="SQLRegistroPagosExternosDetalles">
+    <Type Name="SQLRegistroPagosExternosDetalle">
+      <Column Name="IdRegistroPagoExternoDetalle" Type="System.String" DbType="NVarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdRegistroPagosExterno" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="IDDocumento" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="SQLRegistroPagosExterno_SQLRegistroPagosExternosDetalle" Member="SQLRegistroPagosExterno" Storage="_RegistroPagosExterno" ThisKey="IdRegistroPagosExterno" OtherKey="IdRegistroPagoRemoto" Type="SQLRegistroPagosExterno" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistroPagosExternos" Member="SQLRegistroPagosExternos">
+    <Type Name="SQLRegistroPagosExterno">
+      <Column Name="IdRegistroPagoRemoto" Type="System.String" DbType="NVarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cambio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Efectivo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cheque" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Deposito" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cheque2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Deposito2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NumeroCheque" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumeroDeposito" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumeroCheque2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumeroDeposito2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BancoCheque" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BancoCheque2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BancoDeposito" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BancoDeposito2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Detalles" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Equipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Facturas" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Aplicado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Aplicar" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdTercero" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="SQLRegistroPagosExterno_SQLRegistroPagosExternosDetalle" Member="SQLRegistroPagosExternosDetalles" ThisKey="IdRegistroPagoRemoto" OtherKey="IdRegistroPagosExterno" Type="SQLRegistroPagosExternosDetalle" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Productos" Member="SQLProductos">
+    <Type Name="SQLProducto">
+      <Column Name="IdProducto" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdGrupo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Codigo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Marca" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Modelo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Referencia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Existencia" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Costo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Iva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Precio2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Precio3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BloqueoPrecio" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LlevaInventario" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SolicitaServidor" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Activo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CostoActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CostoDolares" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Minimo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Maximo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CantidadVentaPorDefecto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CodigoBarras" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ubicacion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UnidadMedida" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Peso" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DescuentoMaximo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Precio4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PVP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IdProveedor" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Precio5" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

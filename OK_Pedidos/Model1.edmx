@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Db.Store" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bancos">
+          <Key>
+            <PropertyRef Name="Banco" />
+          </Key>
+          <Property Name="Banco" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdTercero" />
+          </Key>
+          <Property Name="IdTercero" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RazonSocial" Type="nvarchar" MaxLength="100" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Zona" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ruta" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefonos" Type="nvarchar" MaxLength="100" />
+          <Property Name="Condiciones" Type="nvarchar" MaxLength="100" />
+          <Property Name="SaldoDeudor" Type="float" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="20" />
+          <Property Name="DescuentoPorcentaje" Type="float" />
+          <Property Name="TipoPrecio" Type="nvarchar" MaxLength="20" />
+          <Property Name="Nuevo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Contadores">
+          <Key>
+            <PropertyRef Name="Variable" />
+          </Key>
+          <Property Name="Variable" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Valor" Type="int" />
+        </EntityType>
+        <EntityType Name="Cuentas">
+          <Key>
+            <PropertyRef Name="IdCuenta" />
+          </Key>
+          <Property Name="IdCuenta" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IdSesion" Type="nvarchar" MaxLength="6" />
+          <Property Name="Momento" Type="datetime" />
+          <Property Name="IdDocumento" Type="nvarchar" MaxLength="10" />
+          <Property Name="IdTercero" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Vence" Type="datetime" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="20" />
+          <Property Name="TipoDocumento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="20" />
+          <Property Name="Monto" Type="float" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="Seleccion" Type="bit" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdTercero" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdVendedor" Type="nvarchar" MaxLength="20" />
+          <Property Name="TipoCuenta" Type="nvarchar" MaxLength="3" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="20" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Vence" Type="datetime" />
+          <Property Name="BaseImponible" Type="float" />
+          <Property Name="MontoExento" Type="float" />
+          <Property Name="MontoIva" Type="float" />
+          <Property Name="TasaIVA" Type="float" />
+          <Property Name="MontoTotal" Type="float" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="Comentarios" Type="nvarchar" MaxLength="150" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdSesion" Type="nvarchar" MaxLength="6" />
+          <Property Name="Momento" Type="datetime" />
+          <Property Name="Seleccion" Type="bit" />
+          <Property Name="Mes" Type="int" />
+          <Property Name="Año" Type="int" />
+          <Property Name="Control" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubTotal" Type="float" />
+          <Property Name="DescuentoPorcentaje" Type="float" />
+          <Property Name="DescuentoBs" Type="float" />
+          <Property Name="Fletes" Type="float" />
+          <Property Name="Efectivo" Type="float" />
+          <Property Name="Cheque" Type="float" />
+          <Property Name="TarjetaDebito" Type="float" />
+          <Property Name="TarjetaCredito" Type="float" />
+          <Property Name="Deposito" Type="float" />
+          <Property Name="Transferencias" Type="float" />
+          <Property Name="Cambio" Type="float" />
+          <Property Name="DeudaAnterior" Type="float" />
+          <Property Name="Condiciones" Type="nvarchar" MaxLength="50" />
+          <Property Name="PesoFactura" Type="float" />
+          <Property Name="Enviado" Type="bit" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="100" />
+          <Property Name="Razonsocial" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DocumentosProductos">
+          <Key>
+            <PropertyRef Name="IdDetalleDocumento" />
+          </Key>
+          <Property Name="IdDetalleDocumento" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdDocumento" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdProducto" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdServidor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+          <Property Name="Comentarios" Type="nvarchar" MaxLength="150" />
+          <Property Name="ExistenciaAnterior" Type="float" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="CostoIva" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="PrecioIva" Type="float" />
+          <Property Name="TasaIva" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="BloqueoPrecio" Type="bit" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precio2" Type="float" />
+          <Property Name="Precio3" Type="float" />
+          <Property Name="DescuentoPorcentaje" Type="float" />
+          <Property Name="DescuentoBs" Type="float" />
+          <Property Name="MontoNeto" Type="float" />
+          <Property Name="RealizadoPor" Type="nvarchar" MaxLength="50" />
+          <Property Name="SolicitaServidor" Type="bit" />
+          <Property Name="PesoUnitario" Type="float" />
+          <Property Name="PesoTotal" Type="float" />
+          <Property Name="UnidadMedida" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pvs" Type="float" />
+          <Property Name="Precio4" Type="float" />
+          <Property Name="Utilidad" Type="float" />
+          <Property Name="Utilidad2" Type="float" />
+          <Property Name="Utilidad3" Type="float" />
+          <Property Name="Utilidad4" Type="float" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="PagosDetalles">
+          <Key>
+            <PropertyRef Name="IdPagoDetalle" />
+          </Key>
+          <Property Name="IdPagoDetalle" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="IdDocumento" Type="nvarchar" MaxLength="20" />
+          <Property Name="Monto" Type="float" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="20" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdRegistroPago" Type="nvarchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="Parametros">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Empresa" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmpresaDireccion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Equipo" Type="nvarchar" MaxLength="2" />
+          <Property Name="Servidor" Type="nvarchar" MaxLength="100" />
+          <Property Name="BaseDeDatos" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdCliente" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="20" />
+          <Property Name="MontoTotal" Type="float" />
+          <Property Name="Enviado" Type="bit" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="100" />
+          <Property Name="RazonSocial" Type="nvarchar" MaxLength="100" />
+          <Property Name="Efectivo" Type="float" />
+          <Property Name="Cheque" Type="float" />
+          <Property Name="TarjetaDebito" Type="float" />
+          <Property Name="TarjetaCredito" Type="float" />
+          <Property Name="Transferencias" Type="float" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="Deposito" Type="float" />
+          <Property Name="Cambio" Type="float" />
+          <Property Name="Peso" Type="float" />
+        </EntityType>
+        <EntityType Name="PedidosDetalles">
+          <Key>
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdPedido" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdProducto" Type="nvarchar" MaxLength="20" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="DescuentoPorcentaje" Type="float" />
+          <Property Name="DescuentoBolivares" Type="float" />
+          <Property Name="PrecioNeto" Type="float" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="TasaIva" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="20" />
+          <Property Name="ExistenciaPrevia" Type="float" />
+          <Property Name="IdDetalle" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PesoUnitario" Type="float" />
+          <Property Name="PesoTotal" Type="float" />
+          <Property Name="UnidadMedida" Type="nvarchar" MaxLength="20" />
+          <Property Name="Pvs" Type="float" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+          <Property Name="UnidadMedida" Type="nvarchar" MaxLength="100" />
+          <Property Name="Peso" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="Precio2" Type="float" />
+          <Property Name="Precio3" Type="float" />
+          <Property Name="Precio4" Type="float" />
+          <Property Name="Pvs" Type="float" />
+          <Property Name="Existencia" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Grupo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="20" />
+          <Property Name="PrecioIVA" Type="float" />
+          <Property Name="PrecioIVA2" Type="float" />
+          <Property Name="PrecioIVA3" Type="float" />
+          <Property Name="PrecioIVA4" Type="float" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Maximo" Type="float" />
+          <Property Name="Minimo" Type="float" />
+          <Property Name="IdProveedor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Precio5" Type="float" />
+          <Property Name="PrecioIVA5" Type="float" />
+        </EntityType>
+        <EntityType Name="RegistroPagos">
+          <Key>
+            <PropertyRef Name="IdRegistroPago" />
+          </Key>
+          <Property Name="IdRegistroPago" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="IdDocumento" Type="nvarchar" MaxLength="250" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Momento" Type="datetime" />
+          <Property Name="Modulo" Type="nvarchar" MaxLength="250" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="250" />
+          <Property Name="Documento" Type="nvarchar" MaxLength="250" />
+          <Property Name="MontoPagar" Type="float" />
+          <Property Name="SaldoPendiente" Type="float" />
+          <Property Name="Cambio" Type="float" />
+          <Property Name="Efectivo" Type="float" />
+          <Property Name="Cheque" Type="float" />
+          <Property Name="Deposito" Type="float" />
+          <Property Name="BancoCheque" Type="nvarchar" MaxLength="100" />
+          <Property Name="NumeroCheque" Type="nvarchar" MaxLength="100" />
+          <Property Name="NumeroDeposito" Type="nvarchar" MaxLength="100" />
+          <Property Name="BancoDeposito" Type="nvarchar" MaxLength="100" />
+          <Property Name="Transferencia" Type="nvarchar" MaxLength="100" />
+          <Property Name="RazonSocial" Type="nvarchar" MaxLength="150" />
+          <Property Name="IdTecero" Type="nvarchar" MaxLength="20" />
+          <Property Name="MontoPagado" Type="float" />
+          <Property Name="Cheque2" Type="float" />
+          <Property Name="NumeroCheque2" Type="nvarchar" MaxLength="100" />
+          <Property Name="BancoCheque2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Deposito2" Type="float" />
+          <Property Name="BancoDeposito2" Type="nvarchar" MaxLength="100" />
+          <Property Name="NumeroDeposito2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Detalles" Type="nvarchar" MaxLength="250" />
+          <Property Name="Enviado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Terceros">
+          <Key>
+            <PropertyRef Name="IdTercero" />
+          </Key>
+          <Property Name="IdTercero" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RazonSocial" Type="nvarchar" MaxLength="150" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="20" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="150" />
+          <Property Name="Telefonos" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiasCredito" Type="float" />
+          <Property Name="LimiteCredito" Type="float" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoContribuyente" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="DescuentoPorcentaje" Type="float" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zona" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoPrecio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Condiciones" Type="nvarchar" MaxLength="50" />
+          <Property Name="MontoPendiente" Type="float" />
+        </EntityType>
+        <Association Name="Detalles">
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
+          <End Role="DocumentosProductos" Type="Self.DocumentosProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosProductos">
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PedidosRelation">
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PedidosDetalles" Type="Self.PedidosDetalles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedidos">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="PedidosDetalles">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RegistroPagosDetallesRelation">
+          <End Role="RegistroPagos" Type="Self.RegistroPagos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PagosDetalles" Type="Self.PagosDetalles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistroPagos">
+              <PropertyRef Name="IdRegistroPago" />
+            </Principal>
+            <Dependent Role="PagosDetalles">
+              <PropertyRef Name="IdRegistroPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbStoreContainer">
+          <EntitySet Name="Bancos" EntityType="Self.Bancos" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" store:Type="Tables" />
+          <EntitySet Name="Contadores" EntityType="Self.Contadores" store:Type="Tables" />
+          <EntitySet Name="Cuentas" EntityType="Self.Cuentas" store:Type="Tables" />
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" store:Type="Tables" />
+          <EntitySet Name="DocumentosProductos" EntityType="Self.DocumentosProductos" store:Type="Tables" />
+          <EntitySet Name="PagosDetalles" EntityType="Self.PagosDetalles" store:Type="Tables" />
+          <EntitySet Name="Parametros" EntityType="Self.Parametros" store:Type="Tables" />
+          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" store:Type="Tables" />
+          <EntitySet Name="PedidosDetalles" EntityType="Self.PedidosDetalles" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" store:Type="Tables" />
+          <EntitySet Name="RegistroPagos" EntityType="Self.RegistroPagos" store:Type="Tables" />
+          <EntitySet Name="Terceros" EntityType="Self.Terceros" store:Type="Tables" />
+          <AssociationSet Name="Detalles" Association="Self.Detalles">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="DocumentosProductos" EntitySet="DocumentosProductos" />
+          </AssociationSet>
+          <AssociationSet Name="PedidosRelation" Association="Self.PedidosRelation">
+            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="PedidosDetalles" EntitySet="PedidosDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="RegistroPagosDetallesRelation" Association="Self.RegistroPagosDetallesRelation">
+            <End Role="RegistroPagos" EntitySet="RegistroPagos" />
+            <End Role="PagosDetalles" EntitySet="PagosDetalles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Db" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="Banco1" />
+          </Key>
+          <Property Name="Banco1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdTercero" />
+          </Key>
+          <Property Name="IdTercero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Zona" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ruta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefonos" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Condiciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SaldoDeudor" Type="Double" />
+          <Property Name="CedulaRif" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DescuentoPorcentaje" Type="Double" />
+          <Property Name="TipoPrecio" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Nuevo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Contadore">
+          <Key>
+            <PropertyRef Name="Variable" />
+          </Key>
+          <Property Name="Variable" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valor" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cuenta">
+          <Key>
+            <PropertyRef Name="IdCuenta" />
+          </Key>
+          <Property Name="IdCuenta" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdSesion" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Momento" Type="DateTime" Precision="3" />
+          <Property Name="IdDocumento" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IdTercero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Vence" Type="DateTime" Precision="3" />
+          <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Concepto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Numero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Double" />
+          <Property Name="Saldo" Type="Double" />
+          <Property Name="Seleccion" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdTercero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdVendedor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TipoCuenta" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Numero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Vence" Type="DateTime" Precision="3" />
+          <Property Name="BaseImponible" Type="Double" />
+          <Property Name="MontoExento" Type="Double" />
+          <Property Name="MontoIva" Type="Double" />
+          <Property Name="TasaIVA" Type="Double" />
+          <Property Name="MontoTotal" Type="Double" />
+          <Property Name="Saldo" Type="Double" />
+          <Property Name="Comentarios" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdSesion" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Momento" Type="DateTime" Precision="3" />
+          <Property Name="Seleccion" Type="Boolean" />
+          <Property Name="Mes" Type="Int32" />
+          <Property Name="Año" Type="Int32" />
+          <Property Name="Control" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubTotal" Type="Double" />
+          <Property Name="DescuentoPorcentaje" Type="Double" />
+          <Property Name="DescuentoBs" Type="Double" />
+          <Property Name="Fletes" Type="Double" />
+          <Property Name="Efectivo" Type="Double" />
+          <Property Name="Cheque" Type="Double" />
+          <Property Name="TarjetaDebito" Type="Double" />
+          <Property Name="TarjetaCredito" Type="Double" />
+          <Property Name="Deposito" Type="Double" />
+          <Property Name="Transferencias" Type="Double" />
+          <Property Name="Cambio" Type="Double" />
+          <Property Name="DeudaAnterior" Type="Double" />
+          <Property Name="Condiciones" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PesoFactura" Type="Double" />
+          <Property Name="Enviado" Type="Boolean" />
+          <Property Name="CedulaRif" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Razonsocial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DocumentosProductos" Relationship="Self.Detalles" FromRole="Documentos" ToRole="DocumentosProductos" />
+        </EntityType>
+        <EntityType Name="DocumentosProducto">
+          <Key>
+            <PropertyRef Name="IdDetalleDocumento" />
+          </Key>
+          <Property Name="IdDetalleDocumento" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdDocumento" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdProducto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdServidor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Comentarios" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ExistenciaAnterior" Type="Double" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="CostoIva" Type="Double" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="PrecioIva" Type="Double" />
+          <Property Name="TasaIva" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="BloqueoPrecio" Type="Boolean" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Precio2" Type="Double" />
+          <Property Name="Precio3" Type="Double" />
+          <Property Name="DescuentoPorcentaje" Type="Double" />
+          <Property Name="DescuentoBs" Type="Double" />
+          <Property Name="MontoNeto" Type="Double" />
+          <Property Name="RealizadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SolicitaServidor" Type="Boolean" />
+          <Property Name="PesoUnitario" Type="Double" />
+          <Property Name="PesoTotal" Type="Double" />
+          <Property Name="UnidadMedida" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pvs" Type="Double" />
+          <Property Name="Precio4" Type="Double" />
+          <Property Name="Utilidad" Type="Double" />
+          <Property Name="Utilidad2" Type="Double" />
+          <Property Name="Utilidad3" Type="Double" />
+          <Property Name="Utilidad4" Type="Double" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Documento" Relationship="Self.Detalles" FromRole="DocumentosProductos" ToRole="Documentos" />
+        </EntityType>
+        <EntityType Name="PagosDetalle">
+          <Key>
+            <PropertyRef Name="IdPagoDetalle" />
+          </Key>
+          <Property Name="IdPagoDetalle" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdDocumento" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Double" />
+          <Property Name="Numero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdRegistroPago" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RegistroPago" Relationship="Self.RegistroPagosDetallesRelation" FromRole="PagosDetalles" ToRole="RegistroPagos" />
+        </EntityType>
+        <EntityType Name="Parametro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmpresaDireccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Equipo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Servidor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BaseDeDatos" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Numero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MontoTotal" Type="Double" />
+          <Property Name="Enviado" Type="Boolean" />
+          <Property Name="CedulaRif" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RazonSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Efectivo" Type="Double" />
+          <Property Name="Cheque" Type="Double" />
+          <Property Name="TarjetaDebito" Type="Double" />
+          <Property Name="TarjetaCredito" Type="Double" />
+          <Property Name="Transferencias" Type="Double" />
+          <Property Name="Saldo" Type="Double" />
+          <Property Name="Deposito" Type="Double" />
+          <Property Name="Cambio" Type="Double" />
+          <Property Name="Peso" Type="Double" />
+          <NavigationProperty Name="PedidosDetalles" Relationship="Self.PedidosRelation" FromRole="Pedidos" ToRole="PedidosDetalles" />
+        </EntityType>
+        <EntityType Name="PedidosDetalle">
+          <Key>
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdPedido" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdProducto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="DescuentoPorcentaje" Type="Double" />
+          <Property Name="DescuentoBolivares" Type="Double" />
+          <Property Name="PrecioNeto" Type="Double" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="TasaIva" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ExistenciaPrevia" Type="Double" />
+          <Property Name="IdDetalle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PesoUnitario" Type="Double" />
+          <Property Name="PesoTotal" Type="Double" />
+          <Property Name="UnidadMedida" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Pvs" Type="Double" />
+          <NavigationProperty Name="Pedido" Relationship="Self.PedidosRelation" FromRole="PedidosDetalles" ToRole="Pedidos" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UnidadMedida" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Peso" Type="Double" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="Precio2" Type="Double" />
+          <Property Name="Precio3" Type="Double" />
+          <Property Name="Precio4" Type="Double" />
+          <Property Name="Pvs" Type="Double" />
+          <Property Name="Existencia" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="Grupo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PrecioIVA" Type="Double" />
+          <Property Name="PrecioIVA2" Type="Double" />
+          <Property Name="PrecioIVA3" Type="Double" />
+          <Property Name="PrecioIVA4" Type="Double" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Maximo" Type="Double" />
+          <Property Name="Minimo" Type="Double" />
+          <Property Name="IdProveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Precio5" Type="Double" />
+          <Property Name="PrecioIVA5" Type="Double" />
+        </EntityType>
+        <EntityType Name="RegistroPago">
+          <Key>
+            <PropertyRef Name="IdRegistroPago" />
+          </Key>
+          <Property Name="IdRegistroPago" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdDocumento" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Momento" Type="DateTime" Precision="3" />
+          <Property Name="Modulo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Documento" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MontoPagar" Type="Double" />
+          <Property Name="SaldoPendiente" Type="Double" />
+          <Property Name="Cambio" Type="Double" />
+          <Property Name="Efectivo" Type="Double" />
+          <Property Name="Cheque" Type="Double" />
+          <Property Name="Deposito" Type="Double" />
+          <Property Name="BancoCheque" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroCheque" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroDeposito" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BancoDeposito" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Transferencia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RazonSocial" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IdTecero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MontoPagado" Type="Double" />
+          <Property Name="Cheque2" Type="Double" />
+          <Property Name="NumeroCheque2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BancoCheque2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Deposito2" Type="Double" />
+          <Property Name="BancoDeposito2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroDeposito2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Detalles" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Enviado" Type="Boolean" />
+          <NavigationProperty Name="PagosDetalles" Relationship="Self.RegistroPagosDetallesRelation" FromRole="RegistroPagos" ToRole="PagosDetalles" />
+        </EntityType>
+        <EntityType Name="Tercero">
+          <Key>
+            <PropertyRef Name="IdTercero" />
+          </Key>
+          <Property Name="IdTercero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CedulaRif" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Telefonos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiasCredito" Type="Double" />
+          <Property Name="LimiteCredito" Type="Double" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoContribuyente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="DescuentoPorcentaje" Type="Double" />
+          <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoPrecio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Condiciones" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MontoPendiente" Type="Double" />
+        </EntityType>
+        <Association Name="Detalles">
+          <End Role="Documentos" Type="Self.Documento" Multiplicity="0..1" />
+          <End Role="DocumentosProductos" Type="Self.DocumentosProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosProductos">
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RegistroPagosDetallesRelation">
+          <End Role="RegistroPagos" Type="Self.RegistroPago" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PagosDetalles" Type="Self.PagosDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistroPagos">
+              <PropertyRef Name="IdRegistroPago" />
+            </Principal>
+            <Dependent Role="PagosDetalles">
+              <PropertyRef Name="IdRegistroPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PedidosRelation">
+          <End Role="Pedidos" Type="Self.Pedido" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PedidosDetalles" Type="Self.PedidosDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedidos">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="PedidosDetalles">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bancos" EntityType="Self.Banco" />
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="Contadores" EntityType="Self.Contadore" />
+          <EntitySet Name="Cuentas" EntityType="Self.Cuenta" />
+          <EntitySet Name="Documentos" EntityType="Self.Documento" />
+          <EntitySet Name="DocumentosProductos" EntityType="Self.DocumentosProducto" />
+          <EntitySet Name="PagosDetalles" EntityType="Self.PagosDetalle" />
+          <EntitySet Name="Parametros" EntityType="Self.Parametro" />
+          <EntitySet Name="Pedidos" EntityType="Self.Pedido" />
+          <EntitySet Name="PedidosDetalles" EntityType="Self.PedidosDetalle" />
+          <EntitySet Name="Productos" EntityType="Self.Producto" />
+          <EntitySet Name="RegistroPagos" EntityType="Self.RegistroPago" />
+          <EntitySet Name="Terceros" EntityType="Self.Tercero" />
+          <AssociationSet Name="Detalles" Association="Self.Detalles">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="DocumentosProductos" EntitySet="DocumentosProductos" />
+          </AssociationSet>
+          <AssociationSet Name="RegistroPagosDetallesRelation" Association="Self.RegistroPagosDetallesRelation">
+            <End Role="RegistroPagos" EntitySet="RegistroPagos" />
+            <End Role="PagosDetalles" EntitySet="PagosDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="PedidosRelation" Association="Self.PedidosRelation">
+            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="PedidosDetalles" EntitySet="PedidosDetalles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Bancos">
+            <EntityTypeMapping TypeName="Db.Banco">
+              <MappingFragment StoreEntitySet="Bancos">
+                <ScalarProperty Name="Banco1" ColumnName="Banco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="Db.Cliente">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="IdTercero" ColumnName="IdTercero" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Zona" ColumnName="Zona" />
+                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+                <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+                <ScalarProperty Name="Condiciones" ColumnName="Condiciones" />
+                <ScalarProperty Name="SaldoDeudor" ColumnName="SaldoDeudor" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="DescuentoPorcentaje" ColumnName="DescuentoPorcentaje" />
+                <ScalarProperty Name="TipoPrecio" ColumnName="TipoPrecio" />
+                <ScalarProperty Name="Nuevo" ColumnName="Nuevo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contadores">
+            <EntityTypeMapping TypeName="Db.Contadore">
+              <MappingFragment StoreEntitySet="Contadores">
+                <ScalarProperty Name="Variable" ColumnName="Variable" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuentas">
+            <EntityTypeMapping TypeName="Db.Cuenta">
+              <MappingFragment StoreEntitySet="Cuentas">
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="Momento" ColumnName="Momento" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdTercero" ColumnName="IdTercero" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Vence" ColumnName="Vence" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Seleccion" ColumnName="Seleccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="Db.Documento">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdTercero" ColumnName="IdTercero" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="TipoCuenta" ColumnName="TipoCuenta" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Vence" ColumnName="Vence" />
+                <ScalarProperty Name="BaseImponible" ColumnName="BaseImponible" />
+                <ScalarProperty Name="MontoExento" ColumnName="MontoExento" />
+                <ScalarProperty Name="MontoIva" ColumnName="MontoIva" />
+                <ScalarProperty Name="TasaIVA" ColumnName="TasaIVA" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IdSesion" ColumnName="IdSesion" />
+                <ScalarProperty Name="Momento" ColumnName="Momento" />
+                <ScalarProperty Name="Seleccion" ColumnName="Seleccion" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Control" ColumnName="Control" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="DescuentoPorcentaje" ColumnName="DescuentoPorcentaje" />
+                <ScalarProperty Name="DescuentoBs" ColumnName="DescuentoBs" />
+                <ScalarProperty Name="Fletes" ColumnName="Fletes" />
+                <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="TarjetaDebito" ColumnName="TarjetaDebito" />
+                <ScalarProperty Name="TarjetaCredito" ColumnName="TarjetaCredito" />
+                <ScalarProperty Name="Deposito" ColumnName="Deposito" />
+                <ScalarProperty Name="Transferencias" ColumnName="Transferencias" />
+                <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+                <ScalarProperty Name="DeudaAnterior" ColumnName="DeudaAnterior" />
+                <ScalarProperty Name="Condiciones" ColumnName="Condiciones" />
+                <ScalarProperty Name="PesoFactura" ColumnName="PesoFactura" />
+                <ScalarProperty Name="Enviado" ColumnName="Enviado" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="Razonsocial" ColumnName="Razonsocial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentosProductos">
+            <EntityTypeMapping TypeName="Db.DocumentosProducto">
+              <MappingFragment StoreEntitySet="DocumentosProductos">
+                <ScalarProperty Name="IdDetalleDocumento" ColumnName="IdDetalleDocumento" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdServidor" ColumnName="IdServidor" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="ExistenciaAnterior" ColumnName="ExistenciaAnterior" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="CostoIva" ColumnName="CostoIva" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="PrecioIva" ColumnName="PrecioIva" />
+                <ScalarProperty Name="TasaIva" ColumnName="TasaIva" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="BloqueoPrecio" ColumnName="BloqueoPrecio" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Precio2" ColumnName="Precio2" />
+                <ScalarProperty Name="Precio3" ColumnName="Precio3" />
+                <ScalarProperty Name="DescuentoPorcentaje" ColumnName="DescuentoPorcentaje" />
+                <ScalarProperty Name="DescuentoBs" ColumnName="DescuentoBs" />
+                <ScalarProperty Name="MontoNeto" ColumnName="MontoNeto" />
+                <ScalarProperty Name="RealizadoPor" ColumnName="RealizadoPor" />
+                <ScalarProperty Name="SolicitaServidor" ColumnName="SolicitaServidor" />
+                <ScalarProperty Name="PesoUnitario" ColumnName="PesoUnitario" />
+                <ScalarProperty Name="PesoTotal" ColumnName="PesoTotal" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="Pvs" ColumnName="Pvs" />
+                <ScalarProperty Name="Precio4" ColumnName="Precio4" />
+                <ScalarProperty Name="Utilidad" ColumnName="Utilidad" />
+                <ScalarProperty Name="Utilidad2" ColumnName="Utilidad2" />
+                <ScalarProperty Name="Utilidad3" ColumnName="Utilidad3" />
+                <ScalarProperty Name="Utilidad4" ColumnName="Utilidad4" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PagosDetalles">
+            <EntityTypeMapping TypeName="Db.PagosDetalle">
+              <MappingFragment StoreEntitySet="PagosDetalles">
+                <ScalarProperty Name="IdPagoDetalle" ColumnName="IdPagoDetalle" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="IdRegistroPago" ColumnName="IdRegistroPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parametros">
+            <EntityTypeMapping TypeName="Db.Parametro">
+              <MappingFragment StoreEntitySet="Parametros">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="EmpresaDireccion" ColumnName="EmpresaDireccion" />
+                <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+                <ScalarProperty Name="Servidor" ColumnName="Servidor" />
+                <ScalarProperty Name="BaseDeDatos" ColumnName="BaseDeDatos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedidos">
+            <EntityTypeMapping TypeName="Db.Pedido">
+              <MappingFragment StoreEntitySet="Pedidos">
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="Enviado" ColumnName="Enviado" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="TarjetaDebito" ColumnName="TarjetaDebito" />
+                <ScalarProperty Name="TarjetaCredito" ColumnName="TarjetaCredito" />
+                <ScalarProperty Name="Transferencias" ColumnName="Transferencias" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Deposito" ColumnName="Deposito" />
+                <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PedidosDetalles">
+            <EntityTypeMapping TypeName="Db.PedidosDetalle">
+              <MappingFragment StoreEntitySet="PedidosDetalles">
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="DescuentoPorcentaje" ColumnName="DescuentoPorcentaje" />
+                <ScalarProperty Name="DescuentoBolivares" ColumnName="DescuentoBolivares" />
+                <ScalarProperty Name="PrecioNeto" ColumnName="PrecioNeto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="TasaIva" ColumnName="TasaIva" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="ExistenciaPrevia" ColumnName="ExistenciaPrevia" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="PesoUnitario" ColumnName="PesoUnitario" />
+                <ScalarProperty Name="PesoTotal" ColumnName="PesoTotal" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="Pvs" ColumnName="Pvs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="Db.Producto">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Precio2" ColumnName="Precio2" />
+                <ScalarProperty Name="Precio3" ColumnName="Precio3" />
+                <ScalarProperty Name="Precio4" ColumnName="Precio4" />
+                <ScalarProperty Name="Pvs" ColumnName="Pvs" />
+                <ScalarProperty Name="Existencia" ColumnName="Existencia" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="PrecioIVA" ColumnName="PrecioIVA" />
+                <ScalarProperty Name="PrecioIVA2" ColumnName="PrecioIVA2" />
+                <ScalarProperty Name="PrecioIVA3" ColumnName="PrecioIVA3" />
+                <ScalarProperty Name="PrecioIVA4" ColumnName="PrecioIVA4" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+                <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="Precio5" ColumnName="Precio5" />
+                <ScalarProperty Name="PrecioIVA5" ColumnName="PrecioIVA5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistroPagos">
+            <EntityTypeMapping TypeName="Db.RegistroPago">
+              <MappingFragment StoreEntitySet="RegistroPagos">
+                <ScalarProperty Name="IdRegistroPago" ColumnName="IdRegistroPago" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Momento" ColumnName="Momento" />
+                <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="MontoPagar" ColumnName="MontoPagar" />
+                <ScalarProperty Name="SaldoPendiente" ColumnName="SaldoPendiente" />
+                <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+                <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Deposito" ColumnName="Deposito" />
+                <ScalarProperty Name="BancoCheque" ColumnName="BancoCheque" />
+                <ScalarProperty Name="NumeroCheque" ColumnName="NumeroCheque" />
+                <ScalarProperty Name="NumeroDeposito" ColumnName="NumeroDeposito" />
+                <ScalarProperty Name="BancoDeposito" ColumnName="BancoDeposito" />
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="IdTecero" ColumnName="IdTecero" />
+                <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
+                <ScalarProperty Name="Cheque2" ColumnName="Cheque2" />
+                <ScalarProperty Name="NumeroCheque2" ColumnName="NumeroCheque2" />
+                <ScalarProperty Name="BancoCheque2" ColumnName="BancoCheque2" />
+                <ScalarProperty Name="Deposito2" ColumnName="Deposito2" />
+                <ScalarProperty Name="BancoDeposito2" ColumnName="BancoDeposito2" />
+                <ScalarProperty Name="NumeroDeposito2" ColumnName="NumeroDeposito2" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+                <ScalarProperty Name="Enviado" ColumnName="Enviado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terceros">
+            <EntityTypeMapping TypeName="Db.Tercero">
+              <MappingFragment StoreEntitySet="Terceros">
+                <ScalarProperty Name="IdTercero" ColumnName="IdTercero" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DiasCredito" ColumnName="DiasCredito" />
+                <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="TipoContribuyente" ColumnName="TipoContribuyente" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="DescuentoPorcentaje" ColumnName="DescuentoPorcentaje" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Zona" ColumnName="Zona" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="TipoPrecio" ColumnName="TipoPrecio" />
+                <ScalarProperty Name="Condiciones" ColumnName="Condiciones" />
+                <ScalarProperty Name="MontoPendiente" ColumnName="MontoPendiente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7029e2f48b864de5bec426dacc1b6460" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="Db.Banco" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Cliente" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Contadore" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Cuenta" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Documento" Width="1.5" PointX="2.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.DocumentosProducto" Width="1.5" PointX="5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.PagosDetalle" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Parametro" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Pedido" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.PedidosDetalle" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Producto" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.RegistroPago" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db.Tercero" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="Db.Detalles" ManuallyRouted="false" />
+        <AssociationConnector Association="Db.RegistroPagosDetallesRelation" ManuallyRouted="false" />
+        <AssociationConnector Association="Db.PedidosRelation" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

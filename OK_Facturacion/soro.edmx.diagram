@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8a06542557814fadb9e9067f12a89858" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="SoroModel.AuxiliarBancos" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Bancos" Width="1.5" PointX="10.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.BancosMovimientos" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Caja" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Contadores" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Cuentas" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Documentos" Width="1.5" PointX="5.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.DocumentosProductos" Width="1.5" PointX="8" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Grupos" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.LibroCompras" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.LibroInventarios" Width="1.5" PointX="14.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.LibroVentas" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Parametros" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Productos" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Recibos" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RecibosDetalles" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RecibosPagos" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RegistroPagoProveedor" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RegistroPagoProveedorDetalles" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RegistroPagos" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RegistroPagosDetalles" Width="1.5" PointX="14.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RegistroPagosExternos" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RegistroPagosExternosDetalles" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Retenciones" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.RetencionesDetalles" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Sesiones" Width="1.5" PointX="16.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.sysdiagrams" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Temporal" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Terceros" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.Usuarios" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoroModel.UsuariosDerechos" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="SoroModel.FK_BancosMovimientos_Bancos" ManuallyRouted="false" />
+        <AssociationConnector Association="SoroModel.FK_DocumentosDetalles_Documentos" ManuallyRouted="false" />
+        <AssociationConnector Association="SoroModel.FK_RecibosDetalles_Recibos" ManuallyRouted="false" />
+        <AssociationConnector Association="SoroModel.FK_RecibosPagos_Recibos" ManuallyRouted="false" />
+        <AssociationConnector Association="SoroModel.FK_RegistroPagosExternosDetalles_RegistroPagosExternos" ManuallyRouted="false" />
+        <AssociationConnector Association="SoroModel.FK_RetencionesDetalles_Retenciones" ManuallyRouted="false" />
+        <AssociationConnector Association="SoroModel.FK_UsuarioDerechos_Usuarios" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SoroModel.CuentasPendientes" Width="1.5" PointX="7.75" PointY="18.75" />
+        <EntityTypeShape EntityType="SoroModel.TercerosConSaldos" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="SoroModel.VistaCompras" Width="1.5" PointX="19.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SoroModel.VistaDocumento" Width="1.5" PointX="19.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SoroModel.VistaFactura" Width="1.5" PointX="21.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SoroModel.VistaProductos" Width="1.5" PointX="21.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SoroModel.VistaRecibo" Width="1.5" PointX="15.75" PointY="21.75" />
+        <EntityTypeShape EntityType="SoroModel.VistaCuentas" Width="1.5" PointX="7.375" PointY="23.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

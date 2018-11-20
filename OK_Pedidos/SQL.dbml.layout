@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.375" name="SQL">
+  <DataContextMoniker Name="/SQLDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a46541ff-22a4-46eb-9bb3-dfb7621476a4" isExpanded="false" absoluteBounds="0.5, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLTercero" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67ce5e2c-a09e-4b4f-ad3b-d6bf42326664" absoluteBounds="0.51499999999999968, 2.3350000000000009, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c2f49b9-0024-4913-91da-bfe04bd7e4fb" isExpanded="false" absoluteBounds="0.5, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLSaldosPendiente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2adbed95-d9ac-4a9a-b716-bebd62588e59" absoluteBounds="0.51500000000000057, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f722fbe1-be48-4575-8efe-48cf0ca77352" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLDocumentos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81b68292-1b0d-4ad0-a97c-460e53482064" absoluteBounds="0.515, 0.96, 1.9700000000000002, 7.556844075520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12ab6646-8fed-4c5e-a42d-e5eb3bffc249" isExpanded="false" absoluteBounds="2.75, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLContadores" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c1a6614-634d-4423-845b-5a515c723906" absoluteBounds="2.7650000000000006, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bed59a4c-c6a4-45e8-a0ae-40fa4affd40f" isExpanded="false" absoluteBounds="2.75, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLParametros" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3059771e-6ead-4667-86ba-507157241ddc" absoluteBounds="2.7650000000000006, 2.335, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd92c8c9-c1dc-42df-86a1-89f2100d0119" isExpanded="false" absoluteBounds="2.75, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLDocumentosProductos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fde55cf8-5224-4d5d-99c1-754eb65628a2" absoluteBounds="2.765, 0.96, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 0.725); (2.75 : 0.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SQLDataContext/SQLDocumentos/SQLDocumentos_SQLDocumentosProductos" />
+      <nodes>
+        <classShapeMoniker Id="f722fbe1-be48-4575-8efe-48cf0ca77352" />
+        <classShapeMoniker Id="cd92c8c9-c1dc-42df-86a1-89f2100d0119" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="88fd29ee-441e-414f-b54b-831cc998318d" isExpanded="false" absoluteBounds="0.5, 2.625, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLCuentas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a58026a-5bd0-4b67-a582-9ae67e948ef1" absoluteBounds="0.515, 3.085, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef716c15-0cee-4966-b5e9-7fd2847a1c38" isExpanded="false" absoluteBounds="2.75, 2.625, 2, 0.45">
+      <DataClassMoniker Name="/SQLDataContext/SQLRegistroPago" />
+      <nestedChildShapes>
+        <elementListCompartment Id="280fbf49-c5e5-4168-9122-2e57feba0e7d" absoluteBounds="2.765, 3.085, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ede4ff26-8689-4ebc-892d-d0bbd28f2d6e" absoluteBounds="5.25, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/SQLDataContext/SQLRegistroPagosDetalle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be285651-d105-4bb9-be33-1ffbffd4618f" absoluteBounds="5.265, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2088ebc6-6641-407d-b57f-631f6a146808" absoluteBounds="3.375, 3.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/SQLDataContext/SQLRegistroPagosExternosDetalle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d04c982-bc95-4ce5-b979-884e97ae7784" absoluteBounds="3.39, 4.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7d77e25-ddd4-4f7c-b977-c57a5e775f43" absoluteBounds="0.5, 3.75, 2, 5.4246240234375">
+      <DataClassMoniker Name="/SQLDataContext/SQLRegistroPagosExterno" />
+      <nestedChildShapes>
+        <elementListCompartment Id="442d57d5-45a7-4174-8961-a8e1358e6bee" absoluteBounds="0.51500000000000012, 4.21, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 4.76044840494792); (3.375 : 4.76044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SQLDataContext/SQLRegistroPagosExterno/SQLRegistroPagosExterno_SQLRegistroPagosExternosDetalle" />
+      <nodes>
+        <classShapeMoniker Id="c7d77e25-ddd4-4f7c-b977-c57a5e775f43" />
+        <classShapeMoniker Id="2088ebc6-6641-407d-b57f-631f6a146808" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5f646f6e-e321-47d9-986e-2673b13d832d" absoluteBounds="7.75, 0.5, 2, 6.9630354817708326">
+      <DataClassMoniker Name="/SQLDataContext/SQLProducto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="febd4e05-7adf-4702-b1fe-cfcd4df76958" absoluteBounds="7.7650000000000006, 0.96, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

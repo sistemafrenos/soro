@@ -1,0 +1,133 @@
+            if (!CargarPagos())
+                return;            
+            Documento.Saldo =Convert.ToDouble( Decimal.Round( (decimal)Documento.MontoTotal.Value,2)) - Recibo.Monto;
+            if (Documento.Saldo > Titular.LimiteCredito)
+            {
+                MessageBox.Show("Este cliente no tiene credito disponible", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if( Recibo != null )
+            {
+                Recibo.Momento = DateTime.Now;
+                Recibo.IdTercero = Titular.IdTercero;
+                Recibo.NumeroRecibo = FactoryContadores.GetLast("NumeroRecibo");
+                Recibo.TipoRecibo = "FACTURA";
+                Recibo.Concepto = Recibo.Concepto + " " + Titular.RazonSocial;
+            }
+            if (!FactoryDocumentos.Save(dc, Documento,Recibo, Titular, Detalles))
+            {
+                MessageBox.Show("Los cambios no se pudieron guardar");
+            }
+            ImprimirFacturaFiscal();
+
+		private void ImprimirFacturaFiscal()
+        {
+            if (ItemParametros.TipoImpresora.Contains("FISCAL"))
+            {
+                Object Valor = Application.CommonAppDataRegistry.GetValue("ImpresoraFiscal");
+                if (Valor != null)
+                {
+                    if (Valor.ToString() != "SI")
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+                FrmPrincipal f = (FrmPrincipal)this.MdiParent;
+                f.timer1.Enabled = false;
+                cBasicas.ImprimirFactura(Documento);
+                f.timer1.Enabled = true;
+            }
+            else
+            {
+                cBasicas.ImprimirFactura(Documento);
+            }
+        }
+
+
+
+        private void toolImprimir_Click(object sender, EventArgs e)
+        {
+            if (Documento == null)
+                return;
+            if (string.IsNullOrEmpty(Documento.Numero))
+            {
+                List<VistaFactura> Factura = new List<VistaFactura>();
+                Factura = FactoryDocumentos.VistaFacturas(dc, Documento.IdDocumento);
+                FrmReportes f = new FrmReportes();
+                Documento.Tipo = "COPIA FACTURA";
+                f.ReporteFactura(Factura);
+                Documento.Tipo = "FACTURA";
+            }
+       }
+
+
+
+        private void DesHabilitarEdicion()
+        {
+            Encab1.Enabled = false;
+            this.gridControl1.Enabled = false;
+            this.Aceptar.Enabled = false;
+            this.Cancelar.Enabled = false;
+            this.txtBuscar.Enabled = true;
+            txtBuscar.Focus();
+            this.Nuevo.Enabled = true;
+            if (Documento == null)
+            {
+                this.Editar.Enabled = false;
+                this.Imprimir.Enabled = false;
+                this.btnEliminar.Enabled = false;
+            }
+            if (Documento != null)
+            {
+                if (Documento.Status == "INVENTARIO" || Documento.Status == "ABIERTA")
+                {
+                    this.Editar.Enabled = false;
+                    this.Imprimir.Enabled = true;
+                    this.btnEliminar.Enabled = true;
+                }
+                else
+                {
+                    this.Imprimir.Enabled = false;
+                    this.btnEliminar.Enabled = false;
+                    this.Editar.Enabled = false;
+                }
+            }
+        }
+
+
+
+        private void Eliminar()
+        {
+            Documento = (Documentos)this.bs.Current;
+            if (Documento == null) return;
+            if (MessageBox.Show("Esta seguro de eliminar/anular este Documento", "Atencion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.OK)
+                return;
+            if (Documento.Status == "ABIERTA")
+            {
+                FactoryDocumentos.Delete(Documento.IdDocumento);
+            }
+            if (Documento.Status == "INVENTARIO")
+            {
+                Object EsFiscal =Application.CommonAppDataRegistry.GetValue("ImpresoraFiscal");                
+                if (EsFiscal.ToString()!="SI")
+                {
+                    MessageBox.Show("Este equipo no tiene la impresora fiscal activa");
+                    return;
+                }
+                FrmPrincipal f = (FrmPrincipal)this.MdiParent;
+                f.timer1.Enabled = false;
+                //Ojo
+                cBasicas.ImprimirDevolucionFiscal(Documento); 
+                f.timer1.Enabled = true;
+                cFacturas.AnulacionFactura(Documento, FactoryContadores.GetLast("NumeroDevolucion"));
+
+            }
+            this.bs.Clear();
+            this.bsDetalles.Clear();
+            Enlazar(); 
+        }
+

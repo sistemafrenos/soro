@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Datos.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DatosStoreContainer">
+          <EntitySet Name="Contadores" EntityType="Datos.Store.Contadores" store:Type="Tables" />
+          <EntitySet Name="Parametros" EntityType="Datos.Store.Parametros" store:Type="Tables" />
+          <EntitySet Name="Proveedores" EntityType="Datos.Store.Proveedores" store:Type="Tables" />
+          <EntitySet Name="Retenciones" EntityType="Datos.Store.Retenciones" store:Type="Tables" />
+          <EntitySet Name="RetencionesISLR" EntityType="Datos.Store.RetencionesISLR" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="Contadores">
+          <Key>
+            <PropertyRef Name="Variable" />
+          </Key>
+          <Property Name="Variable" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Valor" Type="float" />
+        </EntityType>
+        <EntityType Name="Parametros">
+          <Key>
+            <PropertyRef Name="IdParametros" />
+          </Key>
+          <Property Name="IdParametros" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="10" />
+          <Property Name="RazonSocial" Type="nvarchar" MaxLength="100" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="150" />
+          <Property Name="TasaIva" Type="float" />
+          <Property Name="PorcentajeRetencion" Type="float" />
+          <Property Name="Telefonos" Type="nvarchar" MaxLength="100" />
+          <Property Name="PeriodoFiscal" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="nvarchar" Nullable="false" MaxLength="6" />
+          <Property Name="RazonSocial" Type="nvarchar" MaxLength="150" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="20" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="150" />
+          <Property Name="Telefonos" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="LimiteCredito" Type="float" />
+          <Property Name="DiasCredito" Type="int" />
+          <Property Name="Contacto" Type="nvarchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Retenciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="NumeroDeOperacion" Type="int" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="10" />
+          <Property Name="NombreRazonSocial" Type="nvarchar" MaxLength="150" />
+          <Property Name="PeriodoImpositivo" Type="nvarchar" MaxLength="6" />
+          <Property Name="FechaDocumento" Type="datetime" />
+          <Property Name="TipoOperacion" Type="nvarchar" MaxLength="1" />
+          <Property Name="TipoDocumento" Type="nvarchar" MaxLength="2" />
+          <Property Name="RifAgenteRetencion" Type="nvarchar" MaxLength="10" />
+          <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="20" />
+          <Property Name="NumeroControlDocumento" Type="nvarchar" MaxLength="20" />
+          <Property Name="MontoDocumento" Type="float" />
+          <Property Name="BaseImponible" Type="float" />
+          <Property Name="MontoIvaRetenido" Type="float" />
+          <Property Name="NumeroDocumentoAfectado" Type="nvarchar" MaxLength="20" />
+          <Property Name="NumeroComprobante" Type="nvarchar" MaxLength="14" />
+          <Property Name="MontoExentoIva" Type="float" />
+          <Property Name="Alicuota" Type="float" />
+          <Property Name="NumeroExpediente" Type="nvarchar" MaxLength="15" />
+          <Property Name="MontoIva" Type="float" />
+          <Property Name="FechaComprobante" Type="datetime" />
+          <Property Name="Periodo" Type="nvarchar" MaxLength="100" />
+          <Property Name="PorcentajeRetencion" Type="float" />
+          <Property Name="NotaCredito" Type="nvarchar" MaxLength="20" />
+          <Property Name="NotaDebito" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sustraendo" Type="float" />
+        </EntityType>
+        <EntityType Name="RetencionesISLR">
+          <Key>
+            <PropertyRef Name="IdRetencionISLR" />
+          </Key>
+          <Property Name="IdRetencionISLR" Type="nvarchar" Nullable="false" MaxLength="6" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="100" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="10" />
+          <Property Name="NombreRazonSocial" Type="nvarchar" MaxLength="100" />
+          <Property Name="Periodo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="150" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="MontoDocumento" Type="float" />
+          <Property Name="BaseImponible" Type="float" />
+          <Property Name="PorcentajeRetencion" Type="float" />
+          <Property Name="ImpuestoRetenido" Type="float" />
+          <Property Name="NumeroFactura" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaFactura" Type="datetime" />
+          <Property Name="Sustraendo" Type="float" />
+          <Property Name="Control" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Datos" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Data" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contadores" EntityType="Datos.Contadore" />
+          <EntitySet Name="Parametros" EntityType="Datos.Parametros" />
+          <EntitySet Name="Proveedores" EntityType="Datos.Proveedore" />
+          <EntitySet Name="Retenciones" EntityType="Datos.Retenciones" />
+          <EntitySet Name="RetencionesISLR" EntityType="Datos.RetencionesISLR" />
+        </EntityContainer>
+        <EntityType Name="Contadore">
+          <Key>
+            <PropertyRef Name="Variable" />
+          </Key>
+          <Property Type="String" Name="Variable" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Valor" />
+        </EntityType>
+        <EntityType Name="Parametros">
+          <Key>
+            <PropertyRef Name="IdParametros" />
+          </Key>
+          <Property Type="String" Name="IdParametros" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CedulaRif" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RazonSocial" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="TasaIva" />
+          <Property Type="Double" Name="PorcentajeRetencion" />
+          <Property Type="String" Name="Telefonos" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PeriodoFiscal" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Proveedore">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Type="String" Name="IdProveedor" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RazonSocial" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CedulaRif" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefonos" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="LimiteCredito" />
+          <Property Type="Int32" Name="DiasCredito" />
+          <Property Type="String" Name="Contacto" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Activo" />
+        </EntityType>
+        <EntityType Name="Retenciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="NumeroDeOperacion" />
+          <Property Type="String" Name="CedulaRif" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NombreRazonSocial" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PeriodoImpositivo" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FechaDocumento" />
+          <Property Type="String" Name="TipoOperacion" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TipoDocumento" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RifAgenteRetencion" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroDocumento" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroControlDocumento" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="MontoDocumento" />
+          <Property Type="Double" Name="BaseImponible" />
+          <Property Type="Double" Name="MontoIvaRetenido" />
+          <Property Type="String" Name="NumeroDocumentoAfectado" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroComprobante" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="MontoExentoIva" />
+          <Property Type="Double" Name="Alicuota" />
+          <Property Type="String" Name="NumeroExpediente" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="MontoIva" />
+          <Property Type="DateTime" Name="FechaComprobante" />
+          <Property Type="String" Name="Periodo" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="PorcentajeRetencion" />
+          <Property Type="String" Name="NotaCredito" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NotaDebito" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Sustraendo" />
+        </EntityType>
+        <EntityType Name="RetencionesISLR">
+          <Key>
+            <PropertyRef Name="IdRetencionISLR" />
+          </Key>
+          <Property Type="String" Name="IdRetencionISLR" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Numero" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CedulaRif" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NombreRazonSocial" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Periodo" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Direccion" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha" />
+          <Property Type="Double" Name="MontoDocumento" />
+          <Property Type="Double" Name="BaseImponible" />
+          <Property Type="Double" Name="PorcentajeRetencion" />
+          <Property Type="Double" Name="ImpuestoRetenido" />
+          <Property Type="String" Name="NumeroFactura" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FechaFactura" />
+          <Property Type="Double" Name="Sustraendo" />
+          <Property Type="String" Name="Control" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatosStoreContainer" CdmEntityContainer="Data">
+          <EntitySetMapping Name="Contadores">
+            <EntityTypeMapping TypeName="Datos.Contadore">
+              <MappingFragment StoreEntitySet="Contadores">
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Variable" ColumnName="Variable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parametros">
+            <EntityTypeMapping TypeName="Datos.Parametros">
+              <MappingFragment StoreEntitySet="Parametros">
+                <ScalarProperty Name="PeriodoFiscal" ColumnName="PeriodoFiscal" />
+                <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+                <ScalarProperty Name="PorcentajeRetencion" ColumnName="PorcentajeRetencion" />
+                <ScalarProperty Name="TasaIva" ColumnName="TasaIva" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="IdParametros" ColumnName="IdParametros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="Datos.Proveedore">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="DiasCredito" ColumnName="DiasCredito" />
+                <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Retenciones">
+            <EntityTypeMapping TypeName="Datos.Retenciones">
+              <MappingFragment StoreEntitySet="Retenciones">
+                <ScalarProperty Name="Sustraendo" ColumnName="Sustraendo" />
+                <ScalarProperty Name="NotaDebito" ColumnName="NotaDebito" />
+                <ScalarProperty Name="NotaCredito" ColumnName="NotaCredito" />
+                <ScalarProperty Name="PorcentajeRetencion" ColumnName="PorcentajeRetencion" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+                <ScalarProperty Name="FechaComprobante" ColumnName="FechaComprobante" />
+                <ScalarProperty Name="MontoIva" ColumnName="MontoIva" />
+                <ScalarProperty Name="NumeroExpediente" ColumnName="NumeroExpediente" />
+                <ScalarProperty Name="Alicuota" ColumnName="Alicuota" />
+                <ScalarProperty Name="MontoExentoIva" ColumnName="MontoExentoIva" />
+                <ScalarProperty Name="NumeroComprobante" ColumnName="NumeroComprobante" />
+                <ScalarProperty Name="NumeroDocumentoAfectado" ColumnName="NumeroDocumentoAfectado" />
+                <ScalarProperty Name="MontoIvaRetenido" ColumnName="MontoIvaRetenido" />
+                <ScalarProperty Name="BaseImponible" ColumnName="BaseImponible" />
+                <ScalarProperty Name="MontoDocumento" ColumnName="MontoDocumento" />
+                <ScalarProperty Name="NumeroControlDocumento" ColumnName="NumeroControlDocumento" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+                <ScalarProperty Name="RifAgenteRetencion" ColumnName="RifAgenteRetencion" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="TipoOperacion" ColumnName="TipoOperacion" />
+                <ScalarProperty Name="FechaDocumento" ColumnName="FechaDocumento" />
+                <ScalarProperty Name="PeriodoImpositivo" ColumnName="PeriodoImpositivo" />
+                <ScalarProperty Name="NombreRazonSocial" ColumnName="NombreRazonSocial" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="NumeroDeOperacion" ColumnName="NumeroDeOperacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RetencionesISLR">
+            <EntityTypeMapping TypeName="Datos.RetencionesISLR">
+              <MappingFragment StoreEntitySet="RetencionesISLR">
+                <ScalarProperty Name="Control" ColumnName="Control" />
+                <ScalarProperty Name="Sustraendo" ColumnName="Sustraendo" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="NumeroFactura" ColumnName="NumeroFactura" />
+                <ScalarProperty Name="ImpuestoRetenido" ColumnName="ImpuestoRetenido" />
+                <ScalarProperty Name="PorcentajeRetencion" ColumnName="PorcentajeRetencion" />
+                <ScalarProperty Name="BaseImponible" ColumnName="BaseImponible" />
+                <ScalarProperty Name="MontoDocumento" ColumnName="MontoDocumento" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+                <ScalarProperty Name="NombreRazonSocial" ColumnName="NombreRazonSocial" />
+                <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="IdRetencionISLR" ColumnName="IdRetencionISLR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Data" ZoomLevel="83">
+        <EntityTypeShape EntityType="Datos.Contadore" Width="3.25" PointX="0.75" PointY="0.75" Height="1.4033821614583331" />
+        <EntityTypeShape EntityType="Datos.Parametros" Width="1.5" PointX="0.75" PointY="2.375" Height="2.5571907552083326" />
+        <EntityTypeShape EntityType="Datos.Proveedore" Width="1.5" PointX="4.75" PointY="0.75" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="Datos.Retenciones" Width="1.5" PointX="7.625" PointY="3.625" Height="6.0186165364583335" />
+        <EntityTypeShape EntityType="Datos.RetencionesISLR" Width="1.5" PointX="2.75" PointY="4.75" Height="3.7109993489583335" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
